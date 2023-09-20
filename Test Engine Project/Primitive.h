@@ -92,4 +92,5 @@ public:
 public:
 	vec3 normal;
 	float constant;
+	float size;
 };

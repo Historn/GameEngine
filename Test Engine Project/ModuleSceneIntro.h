@@ -6,8 +6,6 @@
 
 #define MAX_SNAKE 2
 
-struct PhysBody3D;
-struct PhysMotor3D;
 
 class ModuleSceneIntro : public Module
 {
@@ -19,7 +17,7 @@ public:
 	update_status Update(float dt);
 	bool CleanUp();
 
-	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+	//void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
 public:
 	/*
@@ -30,15 +28,10 @@ public:
 	Sphere s_snake2[MAX_SNAKE];
 	*/
 
-	PhysBody3D* pb_chassis;
 	Cube p_chassis;
 
-	PhysBody3D* pb_wheel;
 	Cylinder p_wheel;
 
-	PhysBody3D* pb_wheel2;
 	Cylinder p_wheel2;
 
-	PhysMotor3D* left_wheel;
-	PhysMotor3D* right_wheel;
 };
