@@ -10,45 +10,63 @@
     <Filter Include="Tools">
       <UniqueIdentifier>{13b07544-3546-45ee-83d2-1d5b8f0370f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{8fe35c83-a98f-443b-8be0-9ac9d8917356}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\GameEngine\Test Engine Project\Main.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GameEngine\Test Engine Project\Application.cpp">
+    <ClCompile Include="Application.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GameEngine\Test Engine Project\Timer.cpp">
+    <ClCompile Include="log.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GameEngine\Test Engine Project\Color.cpp">
+    <ClCompile Include="Timer.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GameEngine\Test Engine Project\log.cpp">
+    <ClCompile Include="Color.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRenderer3D.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\GameEngine\Test Engine Project\Application.h">
+    <ClInclude Include="Application.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameEngine\Test Engine Project\Module.h">
+    <ClInclude Include="Module.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameEngine\Test Engine Project\p2DynArray.h">
+    <ClInclude Include="Globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
       <Filter>Tools</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameEngine\Test Engine Project\p2List.h">
+    <ClInclude Include="Color.h">
       <Filter>Tools</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameEngine\Test Engine Project\p2Point.h">
-      <Filter>Tools</Filter>
+    <ClInclude Include="p2DynArray.h">
+      <Filter>Data</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameEngine\Test Engine Project\Timer.h">
-      <Filter>Tools</Filter>
+    <ClInclude Include="p2List.h">
+      <Filter>Data</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameEngine\Test Engine Project\Color.h">
-      <Filter>Tools</Filter>
+    <ClInclude Include="p2Point.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRenderer3D.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
