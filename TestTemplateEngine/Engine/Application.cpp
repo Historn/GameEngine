@@ -2,28 +2,28 @@
 
 Application::Application()
 {
-	m_window = new ModuleWindow(this);
-	//input = new ModuleInput(this);
+	window = new ModuleWindow(this);
+	input = new ModuleInput(this);
 	//audio = new ModuleAudio(this, true);
 	//scene_intro = new ModuleSceneIntro(this);
-	m_renderer3D = new ModuleRenderer3D(this);
-	//camera = new ModuleCamera3D(this);
+	renderer3D = new ModuleRenderer3D(this);
+	camera = new ModuleCamera3D(this);
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
 	// They will CleanUp() in reverse order
 
 	// Main Modules
-	AddModule(m_window);
-	/*AddModule(camera);
+	AddModule(window);
+	AddModule(camera);
 	AddModule(input);
-	AddModule(audio);*/
+	//AddModule(audio);
 
 	// Scenes
 	//AddModule(scene_intro);
 
 	// Renderer last!
-	AddModule(m_renderer3D);
+	AddModule(renderer3D);
 }
 
 Application::~Application()
