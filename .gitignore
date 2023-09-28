@@ -396,3 +396,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+/.vs/TestTemplateEngine
+/TestTemplateEngine/Build/Debug
+*.user
+/x64/Debug
+/.vs
+/MyGameEngine/x64/Debug
