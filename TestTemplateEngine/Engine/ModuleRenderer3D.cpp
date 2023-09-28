@@ -1,11 +1,10 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleRenderer3D.h"
-#include <gl/GL.h>
-#include <gl/GLU.h>
 
-#pragma comment (lib, "glu32.lib")    /* link OpenGL Utility lib     */
-#pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
+#include "GL/glew.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_opengl.h"
 
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -31,6 +30,11 @@ bool ModuleRenderer3D::Init()
 
 	if (ret == true)
 	{
+
+		//auto glew_init_error = glewInit();
+		/*if (glew_init_error != GLEW_OK) throw exception((char*)glewGetErrorString(glew_init_error));
+		if (!GLEW_VERSION_3_1) throw exception("OpenGL 3.1 Not Supported!");*/
+
 		//Use Vsync
 		if (VSYNC && SDL_GL_SetSwapInterval(1) < 0)
 			LOG("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
@@ -43,7 +47,7 @@ bool ModuleRenderer3D::Init()
 		GLenum error = glGetError();
 		if (error != GL_NO_ERROR)
 		{
-			LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
+			LOG("Error initializing OpenGL! %s\n", glewGetErrorString(error));
 			ret = false;
 		}
 
@@ -51,27 +55,28 @@ bool ModuleRenderer3D::Init()
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-		//Check for error
-		error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
+		////Check for error
+		//error = glGetError();
+		//if (error != GL_NO_ERROR)
+		//{
+		//	LOG("Error initializing OpenGL! %s\n", glewGetErrorString(error));
+		//	ret = false;
+		//}
 
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 		glClearDepth(1.0f);
 
+		glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		//Initialize clear color
-		glClearColor(0.f, 0.f, 0.f, 1.f);
+		glClearColor(0.2f, 0.2f, 0.2f, 1.f);
 
-		//Check for error
-		error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
+		////Check for error
+		//error = glGetError();
+		//if (error != GL_NO_ERROR)
+		//{
+		//	LOG("Error initializing OpenGL! %s\n", glewGetErrorString(error));
+		//	ret = false;
+		//}
 
 		GLfloat LightModelAmbient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);

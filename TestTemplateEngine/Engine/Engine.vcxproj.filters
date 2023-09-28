@@ -92,5 +92,11 @@
     <ClInclude Include="Light.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
