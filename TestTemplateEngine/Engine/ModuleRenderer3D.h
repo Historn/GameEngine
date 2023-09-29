@@ -4,6 +4,9 @@
 #include "glmath.h"
 #include "Light.h"
 
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_opengl.h"
+
 #define MAX_LIGHTS 8
 
 class ModuleRenderer3D : public Module

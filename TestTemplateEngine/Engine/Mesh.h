@@ -7,7 +7,7 @@ class Mesh : public Primitive
 	Mesh();
 	~Mesh();
 
-	void DrawMesh();
+	void Draw();
 
 
 };

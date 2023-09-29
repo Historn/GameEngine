@@ -1,10 +1,5 @@
-#include "Globals.h"
 #include "Application.h"
 #include "ModuleRenderer3D.h"
-
-#include "GL/glew.h"
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_opengl.h"
 
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
