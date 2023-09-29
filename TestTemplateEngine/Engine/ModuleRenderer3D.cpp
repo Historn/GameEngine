@@ -26,7 +26,12 @@ bool ModuleRenderer3D::Init()
 	if (ret == true)
 	{
 
-		//auto glew_init_error = glewInit();
+		auto glew_init_error = glewInit();
+		if (glew_init_error != GL_NO_ERROR)
+		{
+			LOG("Error initializing OpenGL! %s\n", glewGetErrorString(glew_init_error));
+			ret = false;
+		}
 		/*if (glew_init_error != GLEW_OK) throw exception((char*)glewGetErrorString(glew_init_error));
 		if (!GLEW_VERSION_3_1) throw exception("OpenGL 3.1 Not Supported!");*/
 
@@ -50,13 +55,13 @@ bool ModuleRenderer3D::Init()
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-		////Check for error
-		//error = glGetError();
-		//if (error != GL_NO_ERROR)
-		//{
-		//	LOG("Error initializing OpenGL! %s\n", glewGetErrorString(error));
-		//	ret = false;
-		//}
+		//Check for error
+		error = glGetError();
+		if (error != GL_NO_ERROR)
+		{
+			LOG("Error initializing OpenGL! %s\n", glewGetErrorString(error));
+			ret = false;
+		}
 
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 		glClearDepth(1.0f);
@@ -65,13 +70,13 @@ bool ModuleRenderer3D::Init()
 		//Initialize clear color
 		glClearColor(0.2f, 0.2f, 0.2f, 1.f);
 
-		////Check for error
-		//error = glGetError();
-		//if (error != GL_NO_ERROR)
-		//{
-		//	LOG("Error initializing OpenGL! %s\n", glewGetErrorString(error));
-		//	ret = false;
-		//}
+		//Check for error
+		error = glGetError();
+		if (error != GL_NO_ERROR)
+		{
+			LOG("Error initializing OpenGL! %s\n", glewGetErrorString(error));
+			ret = false;
+		}
 
 		GLfloat LightModelAmbient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);
