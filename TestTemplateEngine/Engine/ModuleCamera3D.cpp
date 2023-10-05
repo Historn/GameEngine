@@ -145,7 +145,8 @@ void ModuleCamera3D::Move(const glm::vec3& Movement)
 float* ModuleCamera3D::GetViewMatrix()
 {
 	//return &ViewMatrix;
-	return 0;
+	float f = 1.0f;
+	return &f;
 }
 
 // -----------------------------------------------------------------
