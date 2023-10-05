@@ -1,11 +1,7 @@
 #pragma once
 #include "Module.h"
 #include "Globals.h"
-#include "glmath.h"
 #include "Light.h"
-
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_opengl.h"
 
 #define MAX_LIGHTS 8
 
@@ -26,6 +22,6 @@ public:
 
 	Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
-	mat3x3 NormalMatrix;
-	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
+	glm::mat3x3 NormalMatrix;
+	glm::mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
 };

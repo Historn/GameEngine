@@ -42,9 +42,6 @@
     <ClCompile Include="ModuleCamera3D.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="glmath.cpp">
-      <Filter>Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
@@ -89,13 +86,7 @@
     <ClInclude Include="ModuleCamera3D.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="glmath.h">
-      <Filter>Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Light.h">
-      <Filter>Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
       <Filter>Tools</Filter>
     </ClInclude>
     <ClInclude Include="Primitive.h">

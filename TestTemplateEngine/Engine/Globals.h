@@ -7,8 +7,19 @@
 #include <windows.h>
 #include <stdio.h>
 
-/*GLEW.H CAN ONLY BE INCLUDED ONCE*/
-#include <GL/glew.h>
+/*STL LIBS*/
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <string>
+
+/*API LIBS*/
+#include <GL/glew.h> /*GLEW.H CAN ONLY BE INCLUDED ONCE*/
+#include "glm/glm.hpp"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_opengl.h"
 
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
@@ -30,7 +41,7 @@ enum update_status
 	UPDATE_ERROR
 };
 
-// Configuration -----------
+// WINDOW Configuration -----------
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 #define SCREEN_SIZE 1
