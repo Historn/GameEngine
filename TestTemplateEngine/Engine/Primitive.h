@@ -18,3 +18,23 @@ class Primitive {
     virtual void CleanUp();
 
 };
+
+class Cube {
+    
+};
+
+class Plane {
+
+};
+
+class Pyramid {
+
+};
+
+class Sphere {
+    
+};
+
+class Cylinder {
+
+};
