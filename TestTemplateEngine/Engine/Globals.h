@@ -14,6 +14,7 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <assert.h>
 
 /*API LIBS*/
 #include <GL/glew.h> /*GLEW.H CAN ONLY BE INCLUDED ONCE*/
