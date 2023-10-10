@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
+#include "Primitive.h"
 
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -44,6 +45,7 @@ bool ModuleRenderer3D::Init()
 		//Initialize Projection Matrix
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
+		gluPerspective(App->camera->fov, App->camera->aspect, App->camera->zNear, App->camera->zFar);
 
 		//Check for error
 		GLenum error = glGetError();
@@ -56,6 +58,9 @@ bool ModuleRenderer3D::Init()
 		//Initialize Modelview Matrix
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
+		gluLookAt(App->camera->eye.x, App->camera->eye.y, App->camera->eye.z,
+			App->camera->center.x, App->camera->center.y, App->camera->center.z,
+			App->camera->up.x, App->camera->up.y, App->camera->up.z);
 
 		//Check for error
 		error = glGetError();
@@ -70,7 +75,7 @@ bool ModuleRenderer3D::Init()
 
 		glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		//Initialize clear color
-		glClearColor(0.2f, 0.2f, 0.2f, 1.f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.f);
 
 		//Check for error
 		error = glGetError();
@@ -115,7 +120,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(App->camera->GetViewMatrix());
+	//glLoadMatrixf(App->camera->GetViewMatrix());
 
 	// light 0 on cam pos
 	//lights[0].SetPos(App->camera->position.x, App->camera->position.y, App->camera->position.z);
@@ -123,6 +128,15 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	for (uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
 
+	return UPDATE_CONTINUE;
+}
+
+// Update: Draw meshes and other stuff
+update_status ModuleRenderer3D::Update(float dt)
+{
+	drawGrid(100, 1);
+	drawAxis();
+	
 	return UPDATE_CONTINUE;
 }
 

@@ -14,34 +14,6 @@ bool ModuleUI::Init()
     LOG("Creating IMGUI context");
     bool ret = true;
 
-    // Setup Dear ImGui context
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    IM_ASSERT(ImGui::GetCurrentContext() != NULL && "Missing Dear ImGui context. Refer to examples app!");
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
-    //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;       // Enable Multi-Viewport / Platform Windows
-    //io.ConfigViewportsNoAutoMerge = true;
-    //io.ConfigViewportsNoTaskBarIcon = true;
-
-    // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
-    /*ImGuiStyle& style = ImGui::GetStyle();
-    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-    {
-        style.WindowRounding = 0.0f;
-        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-    }*/
-
-    // Setup Platform/Renderer backends
-    ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
-    ImGui_ImplOpenGL3_Init("#version 330 core");
-
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-    //ImGui::StyleColorsLight();
-
     return ret;
 }
 
@@ -49,6 +21,24 @@ bool ModuleUI::Start()
 {
     LOG("Starting IMGUI");
     bool ret = true;
+
+    // Setup Dear ImGui context
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiContext* contextui = ImGui::GetCurrentContext();
+    IM_ASSERT(ImGui::GetCurrentContext() != NULL && "Missing Dear ImGui context. Refer to examples app!");
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
+    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;       // Enable Multi-Viewport / Platform Windows
+    
+    // Setup Platform/Renderer backends
+    ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
+    ImGui_ImplOpenGL3_Init("#version 330 core");
+
+    // Setup Dear ImGui style
+    ImGui::StyleColorsDark();
 
     ImGui_ImplSDL2_ProcessEvent(&App->input->e);
 
@@ -59,9 +49,9 @@ bool ModuleUI::Start()
 
 update_status ModuleUI::PreUpdate(float dt)
 {
-    /*ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplSDL2_NewFrame();
-    ImGui::NewFrame();*/
+    ImGui::NewFrame();
 
     return UPDATE_CONTINUE;
 }
@@ -69,10 +59,6 @@ update_status ModuleUI::PreUpdate(float dt)
 update_status ModuleUI::Update(float dt)
 {
     ImGuiIO& io = ImGui::GetIO();
-
-    ImGui_ImplOpenGL3_NewFrame();
-    ImGui_ImplSDL2_NewFrame();
-    ImGui::NewFrame();
 
     clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
@@ -96,18 +82,14 @@ update_status ModuleUI::Update(float dt)
     ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
     ImGui::End();
 
-    ImGui::EndFrame();
-    ImGui::Render();
-    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
     return UPDATE_CONTINUE;
 }
 
 update_status ModuleUI::PostUpdate(float dt)
 {
-    /*ImGui::EndFrame();
+    ImGui::EndFrame();
     ImGui::Render();
-    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());*/
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     return UPDATE_CONTINUE;
 }
 

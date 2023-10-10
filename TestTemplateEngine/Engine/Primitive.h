@@ -29,6 +29,44 @@ private:
 
 };
 
+/*Should take object rotation*/
+static void drawAxis() {
+    glLineWidth(4.0);
+    glBegin(GL_LINES);
+    glColor3ub(255, 0, 0);
+    glVertex3d(0, 0, 0);
+    glVertex3d(0.5, 0, 0);
+    glColor3ub(0, 255, 0);
+    glVertex3d(0, 0, 0);
+    glVertex3d(0, 0.5, 0);
+    glColor3ub(0, 0, 1);
+    glVertex3d(0, 0, 0);
+    glVertex3d(0, 0, 0.5);
+    glEnd();
+}
+
+/*Add bool to render or not, change size, etc.*/
+static void drawGrid(int grid_size, int grid_step) {
+    glLineWidth(1.0);
+    glColor3ub(128, 128, 128);
+
+    glBegin(GL_LINES);
+    for (int i = -grid_size; i <= grid_size; i += grid_step) {
+        //XY plane
+        glVertex2i(i, -grid_size);
+        glVertex2i(i, grid_size);
+        glVertex2i(-grid_size, i);
+        glVertex2i(grid_size, i);
+
+        //XZ plane
+        glVertex3i(i, 0, -grid_size);
+        glVertex3i(i, 0, grid_size);
+        glVertex3i(-grid_size, 0, i);
+        glVertex3i(grid_size, 0, i);
+    }
+    glEnd();
+}
+
 class Grid {
 public:
 
@@ -83,5 +121,9 @@ class Sphere {
 };
 
 class Cylinder {
+    Cylinder();
 
+    void Init();
+    void Draw();
+    void CleanUp();
 };

@@ -22,6 +22,14 @@
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_opengl.h"
 
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
+#include <glm/mat4x4.hpp>
+
+typedef glm::dvec3 vec3;
+typedef glm::dvec4 vec4;
+typedef glm::dmat4 mat4;
+
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
 void log(const char file[], int line, const char* format, ...);

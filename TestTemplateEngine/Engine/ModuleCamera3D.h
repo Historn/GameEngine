@@ -9,24 +9,22 @@ public:
 	ModuleCamera3D(Application* app, bool start_enabled = true);
 	~ModuleCamera3D();
 
+	bool Init();
 	bool Start();
 	update_status Update(float dt);
 	bool CleanUp();
 
-	void Look(const glm::vec3& Position, const glm::vec3& Reference, bool RotateAroundReference = false);
-	void LookAt(const glm::vec3& Spot);
-	void Move(const glm::vec3& Movement);
-	float* GetViewMatrix();
+	mat4 computeLookAt() const;
 
-private:
+	double fov;
+	double aspect;
+	double zNear;
+	double zFar;
 
-	void CalculateViewMatrix();
+	vec3 eye;
+	vec3 center;
+	vec3 up;
 
-public:
-
-	glm::vec3 X, Y, Z, position, target;
-
-private:
-
-	glm::mat4x4 ViewMatrix, ViewMatrixInverse;
+	
 };
+
