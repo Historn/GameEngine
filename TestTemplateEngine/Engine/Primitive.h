@@ -29,6 +29,19 @@ private:
 
 };
 
+class Grid {
+public:
+
+    Grid();
+
+    void Init();
+    void Draw();
+    void CleanUp();
+
+public:
+
+};
+
 class Plane {
 public:
 
