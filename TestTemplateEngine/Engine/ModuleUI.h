@@ -27,8 +27,9 @@ private:
 private:
 	
 	/*Create bools for each window to show*/
+	bool show_gui = true;
 	bool full_desktop = false;
 	bool minimize_window = false;
-
-	ImVec4 clear_color;
+	
+	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 };

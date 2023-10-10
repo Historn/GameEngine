@@ -22,6 +22,8 @@ bool ModuleRenderer3D::Init()
 		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
+	SDL_GL_MakeCurrent(App->window->window, context);
+
 
 	if (ret == true)
 	{
