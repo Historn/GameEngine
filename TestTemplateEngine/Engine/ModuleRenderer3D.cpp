@@ -162,11 +162,14 @@ void ModuleRenderer3D::OnResize(int width, int height)
 {
 	glViewport(0, 0, width, height);
 
-	/*glMatrixMode(GL_PROJECTION);
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	ProjectionMatrix = perspective(60.0f, (float)width / (float)height, 0.125f, 512.0f);
-	glLoadMatrixf(&ProjectionMatrix);*/
+	gluPerspective(App->camera->fov, App->camera->aspect, App->camera->zNear, App->camera->zFar);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	gluLookAt(App->camera->eye.x, App->camera->eye.y, App->camera->eye.z,
+		App->camera->center.x, App->camera->center.y, App->camera->center.z,
+		App->camera->up.x, App->camera->up.y, App->camera->up.z);
+
 }

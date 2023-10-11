@@ -35,6 +35,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="Graphic.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />

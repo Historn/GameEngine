@@ -5,13 +5,13 @@
 
 ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled) 
 {
-	fov = 60;
-	aspect = (4.0 / 3.0);
+	/*fov = 60;
+	aspect = (SCREEN_WIDTH / SCREEN_HEIGHT);
 	zNear = 0.1;
 	zFar = 100;
-	eye = { 10, 2, 10 };
+	eye = { 5, 2, 5 };
 	center = { 0, 1, 0 };
-	up = { 0, 1, 0 };
+	up = { 0, 1, 0 };*/
 }
 
 ModuleCamera3D::~ModuleCamera3D()

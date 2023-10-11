@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Globals.h"
-
+#include "Graphic.h"
 
 enum PrimitivType {
     PLANE,
@@ -91,17 +91,36 @@ public:
 
 public:
 
+    unsigned int _buffer_id;
+
     glm::vec3 postion;
     glm::vec3 rotation;
     glm::vec3 scale;
 };
 
-class Cube {
-    Cube();
+struct Cube : Graphic {
 
-    void Init();
-    void Draw();
-    void CleanUp();
+    static const int NUM_FACES = 6;
+    static const int NUM_TRIANGLES = NUM_FACES * 2;
+    static const int NUM_VERTEXS = NUM_TRIANGLES * 3;
+
+    const vec3 a;
+    const vec3 b;
+    const vec3 c;
+    const vec3 d;
+    const vec3 e;
+    const vec3 f;
+    const vec3 g;
+    const vec3 h;
+
+    const vec3 red;
+    const vec3 green;
+    const vec3 blue;
+    const vec3 yellow;
+    const vec3 white;
+    const vec3 black;
+
+    Cube();
 };
 
 class Pyramid {
