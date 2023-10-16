@@ -19,6 +19,8 @@ public:
 	update_status PostUpdate(float dt);
 	bool CleanUp();
 
+	void GUIWindow1();
+
 private:
 
 	/*Methods for windows*/
@@ -28,6 +30,9 @@ private:
 	
 	/*Create bools for each window to show*/
 	bool show_gui = true;
+
+	/*GUIWINDOW1 BOOLS*/
+	bool show_guiwindow_1 = false;
 	bool full_desktop = false;
 	bool minimize_window = false;
 	
